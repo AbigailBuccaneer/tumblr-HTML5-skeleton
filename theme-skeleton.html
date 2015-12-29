@@ -37,25 +37,28 @@
 
     <main>
       {block:Posts}
-      <article class="post {PostType}">
+      <article class="post {PostType} {TagsAsClasses}" id="post-{PostID}">
+        {block:Title}<h2 class="title">{Title}</h2>{/block:Title}
+
         {block:Regular}
-          {block:Title}<h2 class="title">{Title}</h2>{/block:Title}
           {Body}
         {/block:Regular}
 
         {block:Photo}
-          <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
-          <div class="caption">{Caption}</div>
+          {LinkOpenTag}
+            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
+          {LinkCloseTag}
+          {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
         {/block:Photo}
 
         {block:Quote}
           <div class="quoteactual {length}"><q>{Quote}</q></div>
-          <div class="source"><span class="emdash">&mdash;</span>{Source}</div>
+          {block:Source}<div class="source"><span class="emdash">&mdash;</span>{Source}</div>{/block:Source}
         {/block:Quote}
 
         {block:Link}
           <p><a href="{URL}" class="link" {Target}>{Name}</a></p>
-          <div class="description">{Description}</div>
+          {block:Description}<div class="description">{Description}</div>{/block:Description}
         {/block:Link}
 
         {block:Conversation}
