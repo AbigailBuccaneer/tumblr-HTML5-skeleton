@@ -22,7 +22,7 @@
       </hgroup>
     </header>
 
-    <section class="posts">
+    <main>
       {block:Posts}
       <article class="post {PostType}">
         {block:Regular}
@@ -66,19 +66,19 @@
           <div class="caption">{Caption}</div>
         {/block:Video}
 
-        <section class="post-meta">
+        <footer class="post-meta">
           <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" class="permalink" pubdate ><a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
-        </section>
+        </footer>
       </article>
       {/block:Posts}
+    </main>
 
-      {block:Pagination}
-      <div id="pagination">
-        <div id="older-link">{block:NextPage}<a href="{NextPage}">&larr; Older</a>{/block:NextPage}</div>
-        <div id="page-count">{CurrentPage} <span>of</span> {TotalPages}</div>
-        <div id="newer-link">{block:PreviousPage}<a href="{PreviousPage}">Newer &rarr;</a>{/block:PreviousPage}</div>
-      </div>
-      {/block:Pagination}
-    </section>
+    {block:Pagination}
+    <footer id="pagination">
+      <div id="older-link">{block:NextPage}<a href="{NextPage}">&larr; Older</a>{/block:NextPage}</div>
+      <div id="page-count">{CurrentPage} <span>of</span> {TotalPages}</div>
+      <div id="newer-link">{block:PreviousPage}<a href="{PreviousPage}">Newer &rarr;</a>{/block:PreviousPage}</div>
+    </footer>
+    {/block:Pagination}
   </body>
 </html>
