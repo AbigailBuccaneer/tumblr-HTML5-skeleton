@@ -24,50 +24,28 @@
 
     <section class="posts">
       {block:Posts}
-
+      <article class="post {PostType}">
         {block:Regular}
-        <article class="regular post">
           {block:Title}<h2 class="title">{Title}</h2>{/block:Title}
           {Body}
-
-          <section class="post-meta">
-            <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" class="permalink" pubdate ><a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
-          </section>
-        </article>
         {/block:Regular}
 
         {block:Photo}
-        <article class="photo post">
           <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
-
-          <section class="post-meta">
-            <div class="caption">{Caption}</div>
-            <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" class="permalink" pubdate ><a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
-          </section>
-        </article>
+          <div class="caption">{Caption}</div>
         {/block:Photo}
 
         {block:Quote}
-        <article class="quote {length} post">
-          <div class="quoteactual"><q>{Quote}</q></div>
-
-          <section class="post-meta">
-            <div class="source"><span class="emdash">&mdash;</span>{Source}</div>
-            <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" class="permalink" pubdate ><a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
-          </section>
-        </article>
+          <div class="quoteactual {length}"><q>{Quote}</q></div>
+          <div class="source"><span class="emdash">&mdash;</span>{Source}</div>
         {/block:Quote}
 
         {block:Link}
-        <article class="link post">
           <p><a href="{URL}" class="link" {Target}>{Name}</a></p>
           <div class="description">{Description}</div>
-          <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" class="permalink" pubdate ><a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
-        </article>
         {/block:Link}
 
         {block:Conversation}
-        <article class="conversation post">
           <ul>
             {block:Lines}
             <li class="{Alt}">
@@ -76,28 +54,22 @@
             </li>
             {/block:Lines}
           </ul>
-          <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" class="permalink" pubdate ><a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
-        </article>
         {/block:Conversation}
 
         {block:Audio}
-        <article class="audio post">
           {AudioPlayerWhite}
           <div class="caption">{block:Caption}{Caption}{/block:Caption}{block:ExternalAudio} [<a href="{ExternalAudioURL}">Download</a>]{/block:ExternalAudio}</div>
-          <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" class="permalink" pubdate ><a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
-        </article>
         {/block:Audio}
 
         {block:Video}
-        <article class="video post">
           {Video-500}
-
-          <section class="post-meta">
-            <div class="caption">{Caption}</div>
-            <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" class="permalink" pubdate ><a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
-          </section>
-        </article>
+          <div class="caption">{Caption}</div>
         {/block:Video}
+
+        <section class="post-meta">
+          <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" class="permalink" pubdate ><a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
+        </section>
+      </article>
       {/block:Posts}
 
       {block:Pagination}
@@ -108,6 +80,5 @@
       </div>
       {/block:Pagination}
     </section>
-
   </body>
 </html>
