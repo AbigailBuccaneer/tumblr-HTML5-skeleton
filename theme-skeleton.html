@@ -82,6 +82,20 @@
           <div class="caption">{Caption}</div>
         {/block:Video}
 
+        {block:Answer}
+        <div class="question">
+          <div class="asker"><img src="{AskerPortraitURL-24}" />{Asker}</div>
+          {Question}
+        </div>
+        {block:Answerer}
+        <div class="answer">
+          <div class="answerer"><img src="{AnswererPortraitURL-96}" />{Answerer}</div>
+          {Answer}
+        </div>
+        {/block:Answerer}
+        {Replies}
+        {/block:Answer}
+
         <footer class="post-meta">
           <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" class="permalink" pubdate ><a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
           {block:RebloggedFrom}
