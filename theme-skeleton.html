@@ -81,6 +81,10 @@
 
         <footer class="post-meta">
           <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" class="permalink" pubdate ><a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
+          {block:RebloggedFrom}
+            via <a href="{ReblogParentURL}" title="{ReblogParentTitle}">{ReblogParentName}</a>
+            (source: <a href="{ReblogRootURL}" title="{ReblogRootTitle}">{ReblogRootName}</a>)
+          {/block:RebloggedFrom}
         </footer>
       </article>
       {/block:Posts}
